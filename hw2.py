@@ -10,17 +10,12 @@ def download_to_csv(url):
 ##2. Create a function that takes a pandas df AND a list of columns name as input. 
 def test_create_dataframe(df,columns):
     # condition1: there are at least 10 rows in the DataFrame
-    if len(df) < 10: 
-        return False
-    # condition2: The values in each column have the same python tye 
-    elif not df.equals(df.dtypes): 
-        return False
+    # condition2: The values in each column have the same python data type
     # condition3: The dataframe contains only the columns that you specified as the second argument 
-    elif set(columns)!=set(df.columns) or len(columns)!=len(df.columns): 
-        return False
-    else:
+    if  len(df) >= 10 and df.equals(df.dtypes) and  sorted(df.columns)==sorted(columns):
         return True
-    
+    return False 
+
 ### test case 
 
 ### Uncomment it if you need to test the module 
